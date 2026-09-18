@@ -1,0 +1,20 @@
+Hashes valid: 1
+Normal samples use valid cells: 1
+Normal samples inside artifact bounds: 1
+Efficacy-rate bound valid: 1 (peak 0.002223446 /s)
+Normal physical force unsaturated: 1
+Normal guards positive: 1
+Normal virtual amplitude valid: 1
+Planned-segment guards valid: 1; normal intervals 70680; failed 0
+Planned maxima: q 0.7309811 m/s^2, qdot 0.9430105 m/s^3, inverse slew 30011.99 N/s
+FOH virtual-command rate valid: 1 (peak 0.9430105 m/s^3)
+Eligible finite-fleet bound holds: 1
+Simplex margins positive: 1
+All information faults revoke normal authority: 1
+Normal vehicle samples: 23904
+Fallback vehicle samples: 100
+stale: expired_or_not_yet_valid
+hash: hash_mismatch
+wrong_cell: cell_mismatch
+missing: missing_field:P
+leader_loss: leader_loss

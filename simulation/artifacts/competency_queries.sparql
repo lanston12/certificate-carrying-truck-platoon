@@ -1,0 +1,13 @@
+# Which audited artifact admits vertices for a selected cell?
+PREFIX ckg: <https://example.org/ckg#>
+SELECT ?artifact ?vertex ?margin WHERE {
+  ?artifact a ckg:Artifact ; ckg:cellId ?cell ;
+            ckg:minimumMargin ?margin ; ckg:admits ?vertex .
+  FILTER (?cell = "C1" && ?margin > 0)
+}
+
+# What fallback authority is declared for an invalid artifact?
+PREFIX ckg: <https://example.org/ckg#>
+SELECT ?artifact ?fallback WHERE {
+  ?artifact a ckg:Artifact ; ckg:fallsBackTo ?fallback .
+}

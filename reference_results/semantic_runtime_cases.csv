@@ -1,0 +1,6 @@
+case,matlab_valid,matlab_reason
+valid,1,valid
+stale,0,expired_or_not_yet_valid
+hash,0,hash_mismatch
+wrong_cell,0,cell_mismatch
+missing,0,missing_field:P

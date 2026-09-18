@@ -1,0 +1,6 @@
+case,matlab_valid,matlab_reason,semantic_shacl_valid,sparql_vertices,sparql_fallbacks,scope,agreement
+valid,1,valid,1,3,1,represented_predicates,yes
+stale,0,expired_or_not_yet_valid,0,3,1,represented_predicates,yes
+hash,0,hash_mismatch,1,3,1,cryptographic_hash_outside_SHACL,scope_excluded
+wrong_cell,0,cell_mismatch,0,3,1,represented_predicates,yes
+missing,0,missing_field:P,0,3,1,represented_predicates,yes

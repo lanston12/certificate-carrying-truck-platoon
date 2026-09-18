@@ -1,0 +1,43 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ckg: <https://example.org/ckg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ckg:ArtifactShape a sh:NodeShape ;
+    sh:targetClass ckg:Artifact ;
+    sh:property [ sh:path ckg:vehicleClass ; sh:minCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path ckg:cellId ; sh:minCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path ckg:artifactId ; sh:minCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path ckg:version ; sh:minCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path ckg:created ; sh:minCount 1 ; sh:datatype xsd:dateTime ] ;
+    sh:property [ sh:path ckg:expires ; sh:minCount 1 ; sh:datatype xsd:dateTime ] ;
+    sh:property [ sh:path ckg:cellBounds ; sh:minCount 1 ] ;
+    sh:property [ sh:path ckg:uncertaintyBounds ; sh:minCount 1 ] ;
+    sh:property [ sh:path ckg:minimumMargin ; sh:minCount 1 ; sh:minExclusive 0 ] ;
+    sh:property [ sh:path ckg:sha256 ; sh:minCount 1 ; sh:pattern "^[0-9a-f]{64}$" ] ;
+    sh:property [ sh:path ckg:fallsBackTo ; sh:minCount 1 ] ;
+    sh:property [ sh:path ckg:P ; sh:minCount 1 ] ;
+    sh:property [ sh:path ckg:Q ; sh:minCount 1 ] ;
+    sh:property [ sh:path ckg:R ; sh:minCount 1 ] ;
+    sh:property [ sh:path ckg:requestedCell ; sh:minCount 1 ] ;
+    sh:property [ sh:path ckg:validationTime ; sh:minCount 1 ; sh:datatype xsd:dateTime ] ;
+    sh:sparql [
+        sh:message "Artifact cell differs from the requested cell" ;
+        sh:select """
+            PREFIX ckg: <https://example.org/ckg#>
+            SELECT $this WHERE {
+                $this ckg:cellId ?cell ; ckg:requestedCell ?requested .
+                FILTER (?cell != ?requested)
+            }
+        """
+    ] ;
+    sh:sparql [
+        sh:message "Artifact is expired or not yet valid" ;
+        sh:select """
+            PREFIX ckg: <https://example.org/ckg#>
+            SELECT $this WHERE {
+                $this ckg:created ?created ; ckg:expires ?expires ;
+                      ckg:validationTime ?now .
+                FILTER (?now < ?created || ?now >= ?expires)
+            }
+        """
+    ] .

@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "ckg": "https://example.org/ckg#",
+    "vehicle_class_id": "ckg:vehicleClass",
+    "cell_id": "ckg:cellId",
+    "artifact_id": "ckg:artifactId",
+    "version": "ckg:version",
+    "creation_time": {"@id": "ckg:created", "@type": "http://www.w3.org/2001/XMLSchema#dateTime"},
+    "expiry_time": {"@id": "ckg:expires", "@type": "http://www.w3.org/2001/XMLSchema#dateTime"},
+    "vertices": "ckg:vertexRecord",
+    "P": "ckg:P",
+    "Q": "ckg:Q",
+    "R": "ckg:R",
+    "requested_cell": "ckg:requestedCell",
+    "validation_time": {"@id": "ckg:validationTime", "@type": "http://www.w3.org/2001/XMLSchema#dateTime"},
+    "cell_bounds": "ckg:cellBounds",
+    "uncertainty_bounds": "ckg:uncertaintyBounds",
+    "audited_min_margin": "ckg:minimumMargin",
+    "fallback_parent": "ckg:fallsBackTo",
+    "integrity_hash": "ckg:sha256"
+  }
+}
