@@ -1,7 +1,7 @@
 outputs/
 simulation/results/all_results.mat
-simulation/figures/
-audit/NORMAL_EXECUTION_AUDIT.csv
+simulation/figures/*.pdf
+simulation/figures/*.png
 *.asv
 *.log
 *.tmp

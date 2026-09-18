@@ -17,5 +17,7 @@ The archived reference values are comparison targets, not generated outputs:
 - Failed normal pre-execution guards: `0`.
 - Eligible finite-fleet interval: `[0, 17.0] s`.
 
-Phase B must independently regenerate these values from source and compare
-them with the archived files in `reference_results/`.
+The source was rerun in Phase B and the focused Phase C audit corrected an
+indexing error in a secondary maximum summary. Regenerate with `run_all()`
+and check the outputs using `tools/verify_reproduction.m`. The archived
+reference files in `reference_results/` are comparison targets only.
